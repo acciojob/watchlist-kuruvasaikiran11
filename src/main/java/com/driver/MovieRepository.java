@@ -10,7 +10,7 @@ public class MovieRepository {
     private Map<String, Director> directorMap;
     private Map<String, List<String>> directorMovieMap;
 
-    MovieRepository(){
+    public MovieRepository(){
         this.directorMap = new HashMap<String, Director>();
         this.movieMap =  new HashMap<String, Movie>();
         this.directorMovieMap = new HashMap<String, List<String>>();
