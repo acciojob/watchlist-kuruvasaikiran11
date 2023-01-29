@@ -17,10 +17,14 @@ public class MovieRepository {
     }
 
     public void saveMovie(Movie movie){
+        if(movieMap.containsKey(movie.getName()))
+            return ;
         movieMap.put(movie.getName(), movie);
     }
 
     public void saveDirector(Director director){
+        if(directorMap.containsKey(director.getName()))
+            return ;
         directorMap.put(director.getName(), director);
     }
 
