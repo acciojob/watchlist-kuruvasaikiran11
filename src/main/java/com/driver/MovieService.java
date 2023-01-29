@@ -1,9 +1,9 @@
 package com.driver;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class MovieService {
@@ -14,36 +14,36 @@ public class MovieService {
     public void addMovie(Movie movie){
         movieRepository.saveMovie(movie);
     }
+
     public void addDirector(Director director){
         movieRepository.saveDirector(director);
     }
 
-    public void pairMovieDirector(String movie, String director){
-        movieRepository.pairMovieDirector(movie, director);
+    public void createMovieDirectorPair(String movie, String director){
+        movieRepository.saveMovieDirectorPair(movie, director);
     }
 
-    public Movie getMovie(String name){
-        return movieRepository.getMovie(name);
+    public Movie findMovie(String movieName){
+        return movieRepository.findMovie(movieName);
     }
 
-    public Director getDirector(String name){
-        return movieRepository.getDirectory(name);
+    public Director findDirector(String directorName){
+        return movieRepository.findDirector(directorName);
     }
 
-    public List<String> getMoviesByDirector(String name){
-        return movieRepository.getMoviesByDirector(name);
+    public List<String> findMoviesFromDirector(String director){
+        return movieRepository.findMoviesFromDirector(director);
     }
 
-
-    public List<String> getMovies(){
-        return movieRepository.getMovies();
+    public List<String> findAllMovies(){
+        return movieRepository.findAllMovies();
     }
 
-    public void deleteDirector(String name){
-        movieRepository.deleteDirector(name);
+    public void deleteDirector(String director){
+        movieRepository.deleteDirector(director);
     }
 
-    public void deleteAll(){
-        movieRepository.deleteAll();
+    public void deleteAllDirectors(){
+        movieRepository.deleteAllDirector();
     }
 }
